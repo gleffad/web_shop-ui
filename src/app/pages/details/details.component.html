@@ -1,0 +1,71 @@
+<div class="row">
+	<div class="col-3">
+		<div class="input-group mb-3">
+			<div class="input-group">
+				<span class="input-group-text" id="search">
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+						class="bi bi-search" viewBox="0 0 16 16">
+						<path
+							d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+					</svg>
+				</span>
+				<input type="text" class="form-control" [(ngModel)]="search" (ngModelChange)="searchEvent($event)"
+					placeholder="Rechercher..." aria-label="Rechercher..." aria-describedby="search">
+			</div>
+		</div>
+		<div class="list-group" data-bs-spy="scroll">
+			<a *ngFor="let product of searchProducts" class="list-group-item list-group-item-action"
+				(click)="selectProduct(product)" [ngClass]="product.toggle ? 'active' : ''">
+				{{ product.name }}
+			</a>
+		</div>
+	</div>
+	<div class="col-8">
+		<div class="card" *ngIf="currentProduct">
+			<h5 class="card-header">{{ currentProduct.name }}</h5>
+			<div class="card-body">
+				<div>Prix : {{ currentProduct.price }}€</div>
+				<div>Prix en promotion : {{ currentProduct.price_on_sale }}€</div>
+				<div>Pourcentage de promotion : {{ currentProduct.discount }}%</div>
+				<div>Quantité en stock : {{ currentProduct.quantity_stock }}</div>
+				<div>Nombre d’articles vendus : {{ currentProduct.quantity_sold }}</div>
+				<div>Commentaires : {{ currentProduct.comments }}</div>
+			</div>
+			<div class="card-footer">
+				<form #f="ngForm" class="row mt-2" >
+					<div class="col-8">
+						<input type="number" class="form-control" placeholder="Articles à ajouter/enlever" name="change_stock" ngModel [ngClass]="{ 'is-invalid': errorStock }"/>
+						<div *ngIf="errorStock" class="invalid-feedback">
+							<div>Champ invalide</div>
+						</div>
+					</div>
+					<div class="col-2">
+						<button type="submit" class="btn btn-secondary w-100" (click)="addStock(f)">Ajouter</button>
+					</div>
+					<div class="col-2">
+						<button type="submit" class="btn btn-secondary w-100" (click)="subStock(f)">Supprimer</button>
+					</div>
+				</form>
+				<form #g="ngForm" class="row mt-3 mb-2">
+					<div class="col-8">
+						<div class="input-group">
+							<input type="number" class="form-control" placeholder="Modifier le pourcentage" aria-label="Modifier le pourcentage" aria-describedby="percentage" name="discount" ngModel [ngClass]="{ 'is-invalid': errorPercentage }">
+							<span class="input-group-text" id="percentage">%</span>
+							<div *ngIf="errorPercentage" class="invalid-feedback">
+								<div>Champ invalide</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-4">
+						<button class="btn btn-secondary w-100" (click)="updatePercentage(g)">Modifier</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="card text-center" *ngIf="!currentProduct">
+			<div class="card-body">
+				<div class="text-muted">Aucun produit ne correspond à votre sélection</div>
+			</div>
+		</div>
+	</div>
+</div>

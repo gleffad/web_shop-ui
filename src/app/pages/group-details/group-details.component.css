@@ -1,0 +1,12 @@
+td,th {
+    padding: 5px;
+    text-align:center;        
+}
+
+table {
+    margin-bottom: 100px;
+}
+
+input,span {
+    height: 2rem;
+}

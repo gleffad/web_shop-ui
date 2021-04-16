@@ -1,0 +1,143 @@
+<nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+        <button class="nav-link active" id="poisson-tab" data-bs-toggle="tab" data-bs-target="#poisson" type="button"
+            role="tab" aria-controls="poisson" aria-selected="true">Poissons</button>
+        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
+            role="tab" aria-controls="nav-profile" aria-selected="false" (click)="loadFruitsDeMer()">Fruits de
+            mer</button>
+        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button"
+            role="tab" aria-controls="nav-contact" aria-selected="false" (click)="loadCrustaces()">Crustacés</button>
+    </div>
+</nav>
+
+<div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="poisson" role="tabpanel" aria-labelledby="poisson-tab">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Promotion</th>
+                    <th scope="col">Réduction</th>
+                    <th scope="col">Qté stock</th>
+                    <th scope="col">Qté vendus</th>
+                    <th scope="col">Commentaires</th>
+                    <th scope="col">Articles à ajouter/enlever</th>
+                    <th scope="col">Modifier le pourcentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of poissons">
+                    <td class="align-middle">{{ p.name }}</td>
+                    <td class="align-middle">{{ p.price }} €</td>
+                    <td class="align-middle">{{ p.price_on_sale }} € </td>
+                    <td class="align-middle">{{ p.discount }} %</td>
+                    <td class="align-middle">{{ p.quantity_stock }}</td>
+                    <td class="align-middle">{{ p.quantity_sold }}</td>
+                    <td class="align-middle">{{ p.comments }}</td>
+                    <td>
+                        <input type="number" class="form-control" placeholder="Articles à ajouter/enlever"
+                            [(ngModel)]="p.stock_update" />
+                    </td>
+                    <td>
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="Modifier le pourcentage"
+                                [(ngModel)]="p.discount_update" />
+                            <span class="input-group-text" id="percentage">%</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Promotion</th>
+                    <th scope="col">Réduction</th>
+                    <th scope="col">Qté stock</th>
+                    <th scope="col">Qté vendus</th>
+                    <th scope="col">Commentaires</th>
+                    <th scope="col">Articles à ajouter/enlever</th>
+                    <th scope="col">Modifier le pourcentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of fruitsDeMers">
+                    <td>{{ p.name }}</td>
+                    <td>{{ p.price }} €</td>
+                    <td>{{ p.price_on_sale }} € </td>
+                    <td>{{ p.discount }} %</td>
+                    <td>{{ p.quantity_stock }}</td>
+                    <td>{{ p.quantity_sold }}</td>
+                    <td>{{ p.comments }}</td>
+                    <td>
+                        <input type="number" class="form-control" placeholder="Articles à ajouter/enlever"
+                            [(ngModel)]="p.stock_update" />
+                    </td>
+                    <td>
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="Modifier le pourcentage"
+                                [(ngModel)]="p.discount_update" />
+                            <span class="input-group-text" id="percentage">%</span>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Promotion</th>
+                    <th scope="col">Réduction</th>
+                    <th scope="col">Qté stock</th>
+                    <th scope="col">Qté vendus</th>
+                    <th scope="col">Commentaires</th>
+                    <th scope="col">Articles à ajouter/enlever</th>
+                    <th scope="col">Modifier le pourcentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let p of crustaces" class="table-danger">
+                    <td>{{ p.name }}</td>
+                    <td>{{ p.price }} €</td>
+                    <td>{{ p.price_on_sale }} € </td>
+                    <td>{{ p.discount }} %</td>
+                    <td>{{ p.quantity_stock }}</td>
+                    <td>{{ p.quantity_sold }}</td>
+                    <td>{{ p.comments }}</td>
+                    <td>
+                        <input type="number" class="form-control" placeholder="Articles à ajouter/enlever"
+                            [(ngModel)]="p.stock_update" />
+                    </td>
+                    <td>
+                        <div class="input-group">
+                            <input type="number" class="form-control" placeholder="Modifier le pourcentage"
+                                [(ngModel)]="p.discount_update" />
+                            <span class="input-group-text" id="percentage">%</span>
+                        </div>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="fixed-bottom">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-outline-secondary me-md-2 btn-sm" type="button" (click)="updateAll()">Envoyer
+                    données</button>
+            </div>
+        </div>
+    </div>
+</div>
