@@ -27,7 +27,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let p of poissons">
+                <tr *ngFor="let p of poissons" [ngClass]="{ 'table-danger': p.errorMultiple }">
                     <td class="align-middle">{{ p.name }}</td>
                     <td class="align-middle">{{ p.price }} €</td>
                     <td class="align-middle">{{ p.price_on_sale }} € </td>
@@ -35,11 +35,11 @@
                     <td class="align-middle">{{ p.quantity_stock }}</td>
                     <td class="align-middle">{{ p.quantity_sold }}</td>
                     <td class="align-middle">{{ p.comments }}</td>
-                    <td>
+                    <td class="align-middle">
                         <input type="number" class="form-control" placeholder="Articles à ajouter/enlever"
                             [(ngModel)]="p.stock_update" />
                     </td>
-                    <td>
+                    <td class="align-middle">
                         <div class="input-group">
                             <input type="number" class="form-control" placeholder="Modifier le pourcentage"
                                 [(ngModel)]="p.discount_update" />
@@ -66,19 +66,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let p of fruitsDeMers">
-                    <td>{{ p.name }}</td>
-                    <td>{{ p.price }} €</td>
-                    <td>{{ p.price_on_sale }} € </td>
-                    <td>{{ p.discount }} %</td>
-                    <td>{{ p.quantity_stock }}</td>
-                    <td>{{ p.quantity_sold }}</td>
-                    <td>{{ p.comments }}</td>
-                    <td>
+                <tr *ngFor="let p of fruitsDeMers" [ngClass]="{ 'table-danger': p.errorMultiple }">
+                    <td class="align-middle">{{ p.name }}</td>
+                    <td class="align-middle">{{ p.price }} €</td>
+                    <td class="align-middle">{{ p.price_on_sale }} € </td>
+                    <td class="align-middle">{{ p.discount }} %</td>
+                    <td class="align-middle">{{ p.quantity_stock }}</td>
+                    <td class="align-middle">{{ p.quantity_sold }}</td>
+                    <td class="align-middle">{{ p.comments }}</td>
+                    <td class="align-middle">
                         <input type="number" class="form-control" placeholder="Articles à ajouter/enlever"
                             [(ngModel)]="p.stock_update" />
                     </td>
-                    <td>
+                    <td class="align-middle">
                         <div class="input-group">
                             <input type="number" class="form-control" placeholder="Modifier le pourcentage"
                                 [(ngModel)]="p.discount_update" />
@@ -105,19 +105,19 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let p of crustaces" class="table-danger">
-                    <td>{{ p.name }}</td>
-                    <td>{{ p.price }} €</td>
-                    <td>{{ p.price_on_sale }} € </td>
-                    <td>{{ p.discount }} %</td>
-                    <td>{{ p.quantity_stock }}</td>
-                    <td>{{ p.quantity_sold }}</td>
-                    <td>{{ p.comments }}</td>
-                    <td>
+                <tr *ngFor="let p of crustaces" [ngClass]="{ 'table-danger': p.errorMultiple }">
+                    <td class="align-middle">{{ p.name }}</td>
+                    <td class="align-middle">{{ p.price }} €</td>
+                    <td class="align-middle">{{ p.price_on_sale }} € </td>
+                    <td class="align-middle">{{ p.discount }} %</td>
+                    <td class="align-middle">{{ p.quantity_stock }}</td>
+                    <td class="align-middle">{{ p.quantity_sold }}</td>
+                    <td class="align-middle">{{ p.comments }}</td>
+                    <td class="align-middle">
                         <input type="number" class="form-control" placeholder="Articles à ajouter/enlever"
                             [(ngModel)]="p.stock_update" />
                     </td>
-                    <td>
+                    <td class="align-middle">
                         <div class="input-group">
                             <input type="number" class="form-control" placeholder="Modifier le pourcentage"
                                 [(ngModel)]="p.discount_update" />
@@ -125,18 +125,20 @@
                         </div>
                     </td>
                 </tr>
-
             </tbody>
         </table>
     </div>
 </div>
 
+
 <div class="fixed-bottom">
     <div class="card">
-        <div class="card-body">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <button class="btn btn-outline-secondary me-md-2 btn-sm" type="button" (click)="updateAll()">Envoyer
-                    données</button>
+        <div class="card-body " [ngClass]="{'text-white bg-danger': haveErrors() }">
+            <div class="d-grid gap-4 d-md-flex justify-content-md-end align-items-center">
+                <div class="m-0" *ngIf="haveErrors()">
+                    {{ messageErrors() }}
+                </div >
+                <button class="btn me-md-2 btn-sm" type="button" (click)="updateAll()" [ngClass]="haveErrors() ? 'btn-light' : 'btn-secondary'">Envoyer données</button>
             </div>
         </div>
     </div>

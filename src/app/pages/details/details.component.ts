@@ -88,7 +88,6 @@ export class DetailsComponent implements OnInit {
       this.currentProduct.discount = discount
       if(discount > 0)
         this.currentProduct.price_on_sale = this.currentProduct.price - ((this.currentProduct.price * discount) / 100)
-      //  (140 * 20) / 100
       console.log("call to API - update Discount (" + discount + ")");
     }
   }
