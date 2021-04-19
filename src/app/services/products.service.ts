@@ -7,6 +7,8 @@ import { Product } from '../models/product.type'
 })
 export class ProductsService {
 
+  baseUrl: String = "http://localhost:8000"
+
   constructor(private http: HttpClient) { }
 
   getProducts() {
@@ -23,5 +25,9 @@ export class ProductsService {
   
   getFruitsDeMer() {
     return this.http.get<Product[]>("../../assets/data/products.json")
+  }
+
+  getProductsTest() {
+    return this.http.get<Product[]>(this.baseUrl + "/products")
   }
 }
