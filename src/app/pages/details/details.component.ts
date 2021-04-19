@@ -86,6 +86,8 @@ export class DetailsComponent implements OnInit {
       form.reset();
       this.notifyService.showSuccess("Promotion pris en compte", "");
       this.currentProduct.discount = discount
+      if(discount == 0) 
+        this.currentProduct.price_on_sale = this.currentProduct.price
       if(discount > 0)
         this.currentProduct.price_on_sale = this.currentProduct.price - ((this.currentProduct.price * discount) / 100)
       console.log("call to API - update Discount (" + discount + ")");

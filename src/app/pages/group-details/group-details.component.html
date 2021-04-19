@@ -2,15 +2,18 @@
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
         <button class="nav-link active" id="poisson-tab" data-bs-toggle="tab" data-bs-target="#poisson" type="button"
             role="tab" aria-controls="poisson" aria-selected="true">Poissons</button>
-        <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button"
-            role="tab" aria-controls="nav-profile" aria-selected="false" (click)="loadFruitsDeMer()">Fruits de
+        <button class="nav-link" id="fruits-de-mer-tab" data-bs-toggle="tab" data-bs-target="#fruits-de-mer" type="button"
+            role="tab" aria-controls="fruits-de-mer" aria-selected="false" (click)="loadFruitsDeMer()">Fruits de
             mer</button>
-        <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button"
-            role="tab" aria-controls="nav-contact" aria-selected="false" (click)="loadCrustaces()">Crustacés</button>
+        <button class="nav-link" id="crustaces-tab" data-bs-toggle="tab" data-bs-target="#crustaces" type="button"
+            role="tab" aria-controls="crustaces" aria-selected="false" (click)="loadCrustaces()">Crustacés</button>
     </div>
 </nav>
 
-<div class="tab-content" id="nav-tabContent">
+<div class="tab-content">
+    <!-- <div class="tab-pane fade" id="poisson" role="tabpanel" aria-labelledby="poisson-tab" *ngFor="let p of produits | keyvalue">
+        {{ p }}
+    </div> -->
     <div class="tab-pane fade show active" id="poisson" role="tabpanel" aria-labelledby="poisson-tab">
         <table class="table table-striped">
             <thead>
@@ -27,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let p of poissons" [ngClass]="{ 'table-danger': p.errorMultiple }">
+                <tr *ngFor="let p of produits.poissons" [ngClass]="{ 'table-danger': p.errorMultiple }">
                     <td class="align-middle">{{ p.name }}</td>
                     <td class="align-middle">{{ p.price }} €</td>
                     <td class="align-middle">{{ p.price_on_sale }} € </td>
@@ -50,7 +53,7 @@
             </tbody>
         </table>
     </div>
-    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <div class="tab-pane fade" id="fruits-de-mer" role="tabpanel" aria-labelledby="fruits-de-mer-tab">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -66,7 +69,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let p of fruitsDeMers" [ngClass]="{ 'table-danger': p.errorMultiple }">
+                <tr *ngFor="let p of produits.fruitsDeMers" [ngClass]="{ 'table-danger': p.errorMultiple }">
                     <td class="align-middle">{{ p.name }}</td>
                     <td class="align-middle">{{ p.price }} €</td>
                     <td class="align-middle">{{ p.price_on_sale }} € </td>
@@ -89,7 +92,7 @@
             </tbody>
         </table>
     </div>
-    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <div class="tab-pane fade" id="crustaces" role="tabpanel" aria-labelledby="crustaces-tab">
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -105,7 +108,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let p of crustaces" [ngClass]="{ 'table-danger': p.errorMultiple }">
+                <tr *ngFor="let p of produits.crustaces" [ngClass]="{ 'table-danger': p.errorMultiple }">
                     <td class="align-middle">{{ p.name }}</td>
                     <td class="align-middle">{{ p.price }} €</td>
                     <td class="align-middle">{{ p.price_on_sale }} € </td>
