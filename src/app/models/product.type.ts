@@ -1,8 +1,6 @@
 export interface Product {
   availability: Boolean,
   id: number,
-  unit: number,
-  owner: String,
   discount: number,
   price: number,
   price_on_sale: number,
