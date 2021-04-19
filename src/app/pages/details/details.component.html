@@ -33,18 +33,25 @@
 			</div>
 			<div class="card-footer">
 				<form #f="ngForm" class="row mt-2" >
-					<div class="col-8">
+					<div class="col-6">
 						<input type="number" class="form-control" placeholder="Articles à ajouter/enlever" name="change_stock" ngModel [ngClass]="{ 'is-invalid': errorStock }"/>
 						<div *ngIf="errorStock" class="invalid-feedback">
 							<div>Champ invalide</div>
 						</div>
 					</div>
+					
+					<div class="form-check col-2 checkbox" >
+						<input class="form-check-input" type="checkbox" id="flexCheck" name="isInvendu" [(ngModel)]="currentProduct.isInvendu">
+						<label class="form-check-label" for="flexCheck">Invendu</label>
+					</div>
+
 					<div class="col-2">
-						<button type="submit" class="btn btn-secondary w-100" (click)="addStock(f)">Ajouter</button>
+						<button type="submit" class="btn btn-secondary w-100" (click)="addStock(f)" [disabled]="currentProduct.isInvendu">Achat</button>
 					</div>
 					<div class="col-2">
-						<button type="submit" class="btn btn-secondary w-100" (click)="subStock(f)">Supprimer</button>
+						<button type="submit" class="btn btn-secondary w-100" (click)="subStock(f)">{{ currentProduct.isInvendu ? "Supprimer" : "Vendre" }}</button>
 					</div>
+
 				</form>
 				<form #g="ngForm" class="row mt-3 mb-2">
 					<div class="col-8">

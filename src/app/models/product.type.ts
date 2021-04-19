@@ -11,8 +11,9 @@ export interface Product {
   category: number,
   created?: String,
 
-  toggle?: boolean,
+  toggle?: Boolean,
   stock_update?: any,
   discount_update?: any,
   errorMultiple?: Boolean,
+  isInvendu?: Boolean
 }

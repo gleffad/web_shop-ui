@@ -11,9 +11,6 @@
 </nav>
 
 <div class="tab-content">
-    <!-- <div class="tab-pane fade" id="poisson" role="tabpanel" aria-labelledby="poisson-tab" *ngFor="let p of produits | keyvalue">
-        {{ p }}
-    </div> -->
     <div class="tab-pane fade show active" id="poisson" role="tabpanel" aria-labelledby="poisson-tab">
         <table class="table table-striped">
             <thead>
@@ -27,6 +24,7 @@
                     <th scope="col">Commentaires</th>
                     <th scope="col">Articles à ajouter/enlever</th>
                     <th scope="col">Modifier le pourcentage</th>
+                    <th scope="col">Invendu</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,15 +37,18 @@
                     <td class="align-middle">{{ p.qte_sold }}</td>
                     <td class="align-middle">{{ p.comment }}</td>
                     <td class="align-middle">
-                        <input type="number" class="form-control" placeholder="Articles à ajouter/enlever"
+                        <input type="number" class="form-control center" placeholder="Articles à ajouter/enlever"
                             [(ngModel)]="p.stock_update" />
                     </td>
                     <td class="align-middle">
                         <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Modifier le pourcentage"
+                            <input type="number" class="form-control center" placeholder="Modifier le pourcentage"
                                 [(ngModel)]="p.discount_update" />
                             <span class="input-group-text" id="percentage">%</span>
                         </div>
+                    </td>
+                    <td class="align-middle">
+                        <input class="form-check-input flex text-align-center" type="checkbox" id="flexCheck" name="isInvendu" [(ngModel)]="p.isInvendu">
                     </td>
                 </tr>
             </tbody>
@@ -66,6 +67,7 @@
                     <th scope="col">Commentaires</th>
                     <th scope="col">Articles à ajouter/enlever</th>
                     <th scope="col">Modifier le pourcentage</th>
+                    <th scope="col">Invendu</th>
                 </tr>
             </thead>
             <tbody>
@@ -78,15 +80,18 @@
                     <td class="align-middle">{{ p.qte_sold }}</td>
                     <td class="align-middle">{{ p.comment }}</td>
                     <td class="align-middle">
-                        <input type="number" class="form-control" placeholder="Articles à ajouter/enlever"
+                        <input type="number" class="form-control center" placeholder="Articles à ajouter/enlever"
                             [(ngModel)]="p.stock_update" />
                     </td>
                     <td class="align-middle">
                         <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Modifier le pourcentage"
+                            <input type="number" class="form-control center" placeholder="Modifier le pourcentage"
                                 [(ngModel)]="p.discount_update" />
                             <span class="input-group-text" id="percentage">%</span>
                         </div>
+                    </td>
+                    <td class="align-middle">
+                        <input class="form-check-input flex text-align-center" type="checkbox" id="flexCheck" name="isInvendu" [(ngModel)]="p.isInvendu">
                     </td>
                 </tr>
             </tbody>
@@ -105,6 +110,7 @@
                     <th scope="col">Commentaires</th>
                     <th scope="col">Articles à ajouter/enlever</th>
                     <th scope="col">Modifier le pourcentage</th>
+                    <th scope="col">Invendu</th>
                 </tr>
             </thead>
             <tbody>
@@ -117,15 +123,18 @@
                     <td class="align-middle">{{ p.qte_sold }}</td>
                     <td class="align-middle">{{ p.comment }}</td>
                     <td class="align-middle">
-                        <input type="number" class="form-control" placeholder="Articles à ajouter/enlever"
+                        <input type="number" class="form-control center" placeholder="Articles à ajouter/enlever"
                             [(ngModel)]="p.stock_update" />
                     </td>
                     <td class="align-middle">
                         <div class="input-group">
-                            <input type="number" class="form-control" placeholder="Modifier le pourcentage"
+                            <input type="number" class="form-control center" placeholder="Modifier le pourcentage"
                                 [(ngModel)]="p.discount_update" />
                             <span class="input-group-text" id="percentage">%</span>
                         </div>
+                    </td>
+                    <td class="align-middle">
+                        <input class="form-check-input flex text-align-center" type="checkbox" id="flexCheck" name="isInvendu" [(ngModel)]="p.isInvendu">
                     </td>
                 </tr>
             </tbody>

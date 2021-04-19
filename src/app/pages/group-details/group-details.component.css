@@ -7,6 +7,6 @@ table {
     margin-bottom: 100px;
 }
 
-input,span {
+.center, span {
     height: 2rem;
 }

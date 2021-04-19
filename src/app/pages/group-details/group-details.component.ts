@@ -20,14 +20,24 @@ export class GroupDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.serviceProducts.getProducts().subscribe(
-      response => this.produits.poissons = response.map(prod => ({ ...prod, stock_update: 0, discount_update: prod.discount, errorMultiple: false }))
+      response => this.produits.poissons = response.map(prod => ({ ...prod, 
+        stock_update: 0, 
+        discount_update: prod.discount, 
+        errorMultiple: false, 
+        isInvendu: false 
+      }))
     );
   }
 
   loadFruitsDeMer(): void {
     if (this.produits.fruitsDeMers.length == 0) {
       this.serviceProducts.getFruitsDeMer().subscribe(
-        response => this.produits.fruitsDeMers = response.map(prod => ({ ...prod, stock_update: 0, discount_update: prod.discount, errorMultiple: false }))
+        response => this.produits.fruitsDeMers = response.map(prod => ({ ...prod, 
+          stock_update: 0, 
+          discount_update: prod.discount,
+          errorMultiple: false, 
+          isInvendu: false 
+        }))
       );
     }
 
@@ -36,7 +46,7 @@ export class GroupDetailsComponent implements OnInit {
   loadCrustaces(): void {
     if (this.produits.crustaces.length == 0) {
       this.serviceProducts.getCrutaces().subscribe(
-        response => this.produits.crustaces = response.map(prod => ({ ...prod, stock_update: 0, discount_update: prod.discount, errorMultiple: false }))
+        response => this.produits.crustaces = response.map(prod => ({ ...prod, stock_update: 0, discount_update: prod.discount, errorMultiple: false, isInvendu: false }))
       );
     }
   }

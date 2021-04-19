@@ -7,9 +7,13 @@ import { Product } from '../models/product.type'
 })
 export class ProductsService {
 
-  baseUrl: String = "http://localhost:8000"
+  // baseUrl: String = "http://localhost:8000"
 
   constructor(private http: HttpClient) { }
+    
+  // getProductsTest() {
+  //   return this.http.get<Product[]>(this.baseUrl + "/products")
+  // }
 
   getProducts() {
     return this.http.get<Product[]>("../../assets/data/products.json")
@@ -27,7 +31,29 @@ export class ProductsService {
     return this.http.get<Product[]>("../../assets/data/products.json")
   }
 
-  getProductsTest() {
-    return this.http.get<Product[]>(this.baseUrl + "/products")
+  patchSubStockProduct(stock: number) {
+    console.log("call to API - Products (Soustraire le stock à la valeur présente dans Produit)");
+    console.log({
+      stock
+    });
+  }
+
+  patchAddStockProduct(stock: number){
+    console.log("call to API - Products (Ajouter le stock à la valeur présente dans Produit)");
+    console.log({
+      stock
+    });
+  }
+
+  patchDiscount(discount: number) {
+    console.log("call to API - Products (Remplace le pourcentage de Produit)");
+    console.log({
+      discount
+    });
+  }
+
+  postTansaction(transaction: { price: number, quantity: number, tigID: number, opetarion: number }) {
+    console.log("call to API - Transaction (Ajout d'une transaction)");
+    console.log(transaction);
   }
 }

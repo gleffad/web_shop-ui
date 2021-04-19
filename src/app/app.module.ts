@@ -9,12 +9,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { GroupDetailsComponent } from './pages/group-details/group-details.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DetailsComponent,
-    GroupDetailsComponent
+    GroupDetailsComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
