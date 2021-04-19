@@ -47,7 +47,7 @@ export class GroupDetailsComponent implements OnInit {
       const update = this.produits[produit].filter(p => {
         if (p.discount_update == null || p.stock_update == null || typeof p.discount_update !== 'number' || typeof p.stock_update !== 'number') p.errorMultiple = true
         else if (p.discount_update < 0 || p.discount_update > 100) p.errorMultiple = true
-        else if (!(p.quantity_stock + p.stock_update >= 0)) p.errorMultiple = true
+        else if (!(p.qte_stock + p.stock_update >= 0)) p.errorMultiple = true
         else p.errorMultiple = false
 
         if ((p.stock_update != 0 || p.discount_update != p.discount) && !p.errorMultiple) {
@@ -56,17 +56,17 @@ export class GroupDetailsComponent implements OnInit {
       })
 
       update.forEach(update => {
-        response.push({ id: update.id, stock: update.stock_update, discount: update.discount_update })
+        response.push({ tigID: update.tigID, stock: update.stock_update, discount: update.discount_update })
       })
 
       if (response.length > 0 && !this.haveErrors()) {
         this.produits[produit].forEach(p => {
-          p.quantity_stock += p.stock_update
+          p.qte_stock += p.stock_update
           p.discount = p.discount_update
           if (p.discount == 0)
-            p.price_on_sale = p.price
+            p.sale_price = p.price
           if (p.discount > 0)
-            p.price_on_sale = p.price - ((p.price * p.discount) / 100)
+            p.sale_price = p.price - ((p.price * p.discount) / 100)
         })
       }
     }

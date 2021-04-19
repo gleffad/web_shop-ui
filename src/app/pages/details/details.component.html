@@ -25,11 +25,11 @@
 			<h5 class="card-header">{{ currentProduct.name }}</h5>
 			<div class="card-body">
 				<div>Prix : {{ currentProduct.price }}€</div>
-				<div>Prix en promotion : {{ currentProduct.price_on_sale }}€</div>
+				<div>Prix en promotion : {{ currentProduct.sale_price }}€</div>
 				<div>Pourcentage de promotion : {{ currentProduct.discount }}%</div>
-				<div>Quantité en stock : {{ currentProduct.quantity_stock }}</div>
-				<div>Nombre d’articles vendus : {{ currentProduct.quantity_sold }}</div>
-				<div>Commentaires : {{ currentProduct.comments }}</div>
+				<div>Quantité en stock : {{ currentProduct.qte_stock }}</div>
+				<div>Nombre d’articles vendus : {{ currentProduct.qte_sold }}</div>
+				<div>Commentaires : {{ currentProduct.comment }}</div>
 			</div>
 			<div class="card-footer">
 				<form #f="ngForm" class="row mt-2" >

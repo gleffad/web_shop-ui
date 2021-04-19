@@ -33,11 +33,11 @@
                 <tr *ngFor="let p of produits.poissons" [ngClass]="{ 'table-danger': p.errorMultiple }">
                     <td class="align-middle">{{ p.name }}</td>
                     <td class="align-middle">{{ p.price }} €</td>
-                    <td class="align-middle">{{ p.price_on_sale }} € </td>
+                    <td class="align-middle">{{ p.sale_price }} € </td>
                     <td class="align-middle">{{ p.discount }} %</td>
-                    <td class="align-middle">{{ p.quantity_stock }}</td>
-                    <td class="align-middle">{{ p.quantity_sold }}</td>
-                    <td class="align-middle">{{ p.comments }}</td>
+                    <td class="align-middle">{{ p.qte_stock }}</td>
+                    <td class="align-middle">{{ p.qte_sold }}</td>
+                    <td class="align-middle">{{ p.comment }}</td>
                     <td class="align-middle">
                         <input type="number" class="form-control" placeholder="Articles à ajouter/enlever"
                             [(ngModel)]="p.stock_update" />
@@ -72,11 +72,11 @@
                 <tr *ngFor="let p of produits.fruitsDeMers" [ngClass]="{ 'table-danger': p.errorMultiple }">
                     <td class="align-middle">{{ p.name }}</td>
                     <td class="align-middle">{{ p.price }} €</td>
-                    <td class="align-middle">{{ p.price_on_sale }} € </td>
+                    <td class="align-middle">{{ p.sale_price }} € </td>
                     <td class="align-middle">{{ p.discount }} %</td>
-                    <td class="align-middle">{{ p.quantity_stock }}</td>
-                    <td class="align-middle">{{ p.quantity_sold }}</td>
-                    <td class="align-middle">{{ p.comments }}</td>
+                    <td class="align-middle">{{ p.qte_stock }}</td>
+                    <td class="align-middle">{{ p.qte_sold }}</td>
+                    <td class="align-middle">{{ p.comment }}</td>
                     <td class="align-middle">
                         <input type="number" class="form-control" placeholder="Articles à ajouter/enlever"
                             [(ngModel)]="p.stock_update" />
@@ -111,11 +111,11 @@
                 <tr *ngFor="let p of produits.crustaces" [ngClass]="{ 'table-danger': p.errorMultiple }">
                     <td class="align-middle">{{ p.name }}</td>
                     <td class="align-middle">{{ p.price }} €</td>
-                    <td class="align-middle">{{ p.price_on_sale }} € </td>
+                    <td class="align-middle">{{ p.sale_price }} € </td>
                     <td class="align-middle">{{ p.discount }} %</td>
-                    <td class="align-middle">{{ p.quantity_stock }}</td>
-                    <td class="align-middle">{{ p.quantity_sold }}</td>
-                    <td class="align-middle">{{ p.comments }}</td>
+                    <td class="align-middle">{{ p.qte_stock }}</td>
+                    <td class="align-middle">{{ p.qte_sold }}</td>
+                    <td class="align-middle">{{ p.comment }}</td>
                     <td class="align-middle">
                         <input type="number" class="form-control" placeholder="Articles à ajouter/enlever"
                             [(ngModel)]="p.stock_update" />

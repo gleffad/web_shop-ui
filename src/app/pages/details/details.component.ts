@@ -35,7 +35,7 @@ export class DetailsComponent implements OnInit {
     this.errorStock = false
     this.errorPercentage = false
     this.products = this.products.map(product => {
-      if (product.id == currentProduct.id)
+      if (product.tigID == currentProduct.tigID)
         product.toggle = true;
       else
         product.toggle = false;
@@ -59,20 +59,20 @@ export class DetailsComponent implements OnInit {
       console.log("call to API - add Stock (" + stock + ")");
       this.notifyService.showSuccess("Ajout du stock pris en compte", "");
       this.errorStock=false;
-      this.currentProduct.quantity_stock += stock
+      this.currentProduct.qte_stock += stock
       form.reset();
     }
   }
 
   subStock(form) {
     const stock = form.value.change_stock
-    if(stock === "" || (typeof stock !== 'number') || (stock < 0) || (stock > this.currentProduct.quantity_stock)) { 
+    if(stock === "" || (typeof stock !== 'number') || (stock < 0) || (stock > this.currentProduct.qte_stock)) { 
       this.errorStock=true;
     } else {
       console.log("call to API - sub Stock (" + form.value.change_stock + ")");
       this.notifyService.showSuccess("Retrait du stock pris en compte", "");
       this.errorStock = false;
-      this.currentProduct.quantity_stock -= stock
+      this.currentProduct.qte_stock -= stock
       form.reset();  
     }
   }
@@ -87,9 +87,9 @@ export class DetailsComponent implements OnInit {
       this.notifyService.showSuccess("Promotion pris en compte", "");
       this.currentProduct.discount = discount
       if(discount == 0) 
-        this.currentProduct.price_on_sale = this.currentProduct.price
+        this.currentProduct.sale_price = this.currentProduct.price
       if(discount > 0)
-        this.currentProduct.price_on_sale = this.currentProduct.price - ((this.currentProduct.price * discount) / 100)
+        this.currentProduct.sale_price = this.currentProduct.price - ((this.currentProduct.price * discount) / 100)
       console.log("call to API - update Discount (" + discount + ")");
     }
   }
