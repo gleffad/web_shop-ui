@@ -3,10 +3,12 @@ td,th {
     text-align:center;        
 }
 
-table {
-    margin-bottom: 100px;
-}
-
 .center, span {
     height: 2rem;
+}
+
+.scroll {
+    max-height: 720px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
