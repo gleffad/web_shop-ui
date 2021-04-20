@@ -58,7 +58,7 @@ export class DetailsComponent implements OnInit {
     }  else {
       this.notifyService.showSuccess("Ajout du stock pris en compte", "");
       this.serviceProducts.patchAddStockProduct(stock);
-      this.serviceProducts.postTansaction({
+      this.serviceProducts.postTransaction({
         price: this.currentProduct.sale_price,
         quantity: stock,
         tigID: this.currentProduct.tigID,
@@ -78,7 +78,7 @@ export class DetailsComponent implements OnInit {
     } else {
       this.notifyService.showSuccess("Retrait du stock pris en compte", "");
       this.serviceProducts.patchSubStockProduct(stock);
-      this.serviceProducts.postTansaction({
+      this.serviceProducts.postTransaction({
         price: this.currentProduct.sale_price,
         quantity: stock,
         tigID: this.currentProduct.tigID,

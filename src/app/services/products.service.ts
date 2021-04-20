@@ -52,8 +52,18 @@ export class ProductsService {
     });
   }
 
-  postTansaction(transaction: { price: number, quantity: number, tigID: number, opetarion: number }) {
+  postTransaction(transaction: { price: number, quantity: number, tigID: number, opetarion: number }) {
     console.log("call to API - Transaction (Ajout d'une transaction)");
     console.log(transaction);
+  }
+  
+  postGroupTransaction(transactions: Array<{ price: number, quantity: number, tigID: number, opetarion: number }>) {
+    console.log("call to API - Transaction (Ajout de plusieurs transactions)");
+    console.log(transactions);
+  }
+
+  patchGroupProduct(products: Array<{ tigID: number, stock: number, discount: number }>) {
+    console.log("call to API - Products (Modification de groupe sur les stocks et pourcentages)");
+    console.log(products);
   }
 }

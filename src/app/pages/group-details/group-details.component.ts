@@ -40,7 +40,6 @@ export class GroupDetailsComponent implements OnInit {
         }))
       );
     }
-
   }
 
   loadCrustaces(): void {
@@ -53,13 +52,14 @@ export class GroupDetailsComponent implements OnInit {
 
   updateAll(): void {
     let response = []
+    let transactions = []
     for (const produit in this.produits) {
       const update = this.produits[produit].filter(p => {
         if (p.discount_update == null || p.stock_update == null || typeof p.discount_update !== 'number' || typeof p.stock_update !== 'number') p.errorMultiple = true
         else if (p.discount_update < 0 || p.discount_update > 100) p.errorMultiple = true
         else if (!(p.qte_stock + p.stock_update >= 0)) p.errorMultiple = true
+        else if(p.isInvendu && p.stock_update >= 0) p.errorMultiple = true 
         else p.errorMultiple = false
-
         if ((p.stock_update != 0 || p.discount_update != p.discount) && !p.errorMultiple) {
           return true
         }
@@ -67,6 +67,12 @@ export class GroupDetailsComponent implements OnInit {
 
       update.forEach(update => {
         response.push({ tigID: update.tigID, stock: update.stock_update, discount: update.discount_update })
+        transactions.push({
+          price: update.sale_price,
+          quantity: update.stock_update,
+          tigID: update.tigID,
+          opetarion: update.stock_update >= 0 ? 0 : (update.isInvendu ? 2 : 1)
+        })
       })
 
       if (response.length > 0 && !this.haveErrors()) {
@@ -83,8 +89,14 @@ export class GroupDetailsComponent implements OnInit {
 
     if (response.length > 0 && !this.haveErrors()) {
       this.notifyService.showSuccess("Modification acceptée", "");
-      console.log("call to API - updateAll ");
-      console.log(response);
+      this.serviceProducts.postGroupTransaction(transactions)
+      this.serviceProducts.patchGroupProduct(response)
+      for (const produit in this.produits) {
+        this.produits[produit].forEach(p => {
+          p.discount_update = p.discount;
+          p.stock_update = 0;
+        })
+      }
     }
   }
 
