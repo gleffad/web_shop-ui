@@ -24,17 +24,17 @@
 		<div class="card" *ngIf="currentProduct">
 			<h5 class="card-header">{{ currentProduct.name }}</h5>
 			<div class="card-body">
-				<div>Prix : {{ currentProduct.price }}€</div>
-				<div>Prix en promotion : {{ currentProduct.sale_price }}€</div>
+				<div>Prix : {{ currentProduct.resale_price }}€</div>
+				<div>Prix en promotion : {{ currentProduct.discount_price }}€</div>
 				<div>Pourcentage de promotion : {{ currentProduct.discount }}%</div>
-				<div>Quantité en stock : {{ currentProduct.qte_stock }}</div>
-				<div>Nombre d’articles vendus : {{ currentProduct.qte_sold }}</div>
+				<div>Quantité en stock : {{ currentProduct.qty_stock }}</div>
+				<div>Nombre d’articles vendus : {{ currentProduct.qty_sold }}</div>
 				<div>Commentaires : {{ currentProduct.comment }}</div>
 			</div>
 			<div class="card-footer">
 				<form #f="ngForm" class="row mt-2" >
 					<div class="col-6">
-						<input type="number" class="form-control" placeholder="Articles à ajouter/enlever" name="change_stock" ngModel [ngClass]="{ 'is-invalid': errorStock }"/>
+						<input type="number" min="0" class="form-control" placeholder="Articles à ajouter/enlever" name="change_stock" ngModel [ngClass]="{ 'is-invalid': errorStock }"/>
 						<div *ngIf="errorStock" class="invalid-feedback">
 							<div>Champ invalide</div>
 						</div>
@@ -56,7 +56,7 @@
 				<form #g="ngForm" class="row mt-3 mb-2">
 					<div class="col-8">
 						<div class="input-group">
-							<input type="number" class="form-control" placeholder="Modifier le pourcentage" aria-label="Modifier le pourcentage" aria-describedby="percentage" name="discount" ngModel [ngClass]="{ 'is-invalid': errorPercentage }">
+							<input type="number" min="0" class="form-control" placeholder="Modifier le pourcentage" aria-label="Modifier le pourcentage" aria-describedby="percentage" name="discount" ngModel [ngClass]="{ 'is-invalid': errorPercentage }">
 							<span class="input-group-text" id="percentage">%</span>
 							<div *ngIf="errorPercentage" class="invalid-feedback">
 								<div>Champ invalide</div>

@@ -31,9 +31,9 @@ export class DetailsComponent implements OnInit {
   }
 
   selectProduct(currentProduct: Product): void {
-    this.currentProduct = currentProduct
-    this.errorStock = false
-    this.errorPercentage = false
+    this.currentProduct = currentProduct;
+    this.errorStock = false;
+    this.errorPercentage = false;
     this.products = this.products.map(product => {
       if (product.tigID == currentProduct.tigID)
         product.toggle = true;
@@ -52,40 +52,40 @@ export class DetailsComponent implements OnInit {
   }
 
   addStock(form) {
-    const stock = form.value.change_stock
+    const stock = form.value.change_stock;
     if((stock === "") || (typeof stock !== 'number') || stock < 0) {
       this.errorStock=true;
-    }  else {
+    } else {
       this.notifyService.showSuccess("Ajout du stock pris en compte", "");
       this.serviceProducts.patchAddStockProduct(stock);
       this.serviceProducts.postTransaction({
-        price: this.currentProduct.sale_price,
+        price: this.currentProduct.discount_price,
         quantity: stock,
         tigID: this.currentProduct.tigID,
         opetarion: 0
       })
 
       this.errorStock=false;
-      this.currentProduct.qte_stock += stock
+      this.currentProduct.qty_stock += stock
       form.reset();
     }
   }
 
   subStock(form) {
     const stock = form.value.change_stock
-    if((stock === "") || (typeof stock !== 'number') || (stock < 0) || (stock > this.currentProduct.qte_stock)) { 
+    if((stock === "") || (typeof stock !== 'number') || (stock < 0) || (stock > this.currentProduct.qty_stock)) { 
       this.errorStock=true;
     } else {
       this.notifyService.showSuccess("Retrait du stock pris en compte", "");
       this.serviceProducts.patchSubStockProduct(stock);
       this.serviceProducts.postTransaction({
-        price: this.currentProduct.sale_price,
+        price: this.currentProduct.discount_price,
         quantity: stock,
         tigID: this.currentProduct.tigID,
         opetarion: this.currentProduct.isInvendu ? 2 : 1
       });
 
-      this.currentProduct.qte_stock -= stock
+      this.currentProduct.qty_stock -= stock
       this.errorStock = false;
       form.reset();  
     }
@@ -101,9 +101,9 @@ export class DetailsComponent implements OnInit {
       this.notifyService.showSuccess("Promotion pris en compte", "");
       this.currentProduct.discount = discount
       if(discount == 0) 
-        this.currentProduct.sale_price = this.currentProduct.price
+        this.currentProduct.discount_price = this.currentProduct.resale_price
       if(discount > 0)
-        this.currentProduct.sale_price = this.currentProduct.price - ((this.currentProduct.price * discount) / 100)
+        this.currentProduct.discount_price = this.currentProduct.resale_price - ((this.currentProduct.resale_price * discount) / 100)
 
       this.serviceProducts.patchDiscount(discount)
     }

@@ -45,52 +45,59 @@ export class GroupDetailsComponent implements OnInit {
   loadCrustaces(): void {
     if (this.produits.crustaces.length == 0) {
       this.serviceProducts.getCrutaces().subscribe(
-        response => this.produits.crustaces = response.map(prod => ({ ...prod, stock_update: 0, discount_update: prod.discount, errorMultiple: false, isInvendu: false }))
+        response => this.produits.crustaces = response.map(prod => ({ ...prod, 
+          stock_update: 0, 
+          discount_update: prod.discount, 
+          errorMultiple: false, 
+          isInvendu: false }))
       );
     }
   }
 
   updateAll(): void {
-    let response = []
-    let transactions = []
+    let response = [];
+    let transactions = [];
     for (const produit in this.produits) {
       const update = this.produits[produit].filter(p => {
-        if (p.discount_update == null || p.stock_update == null || typeof p.discount_update !== 'number' || typeof p.stock_update !== 'number') p.errorMultiple = true
-        else if (p.discount_update < 0 || p.discount_update > 100) p.errorMultiple = true
-        else if (!(p.qte_stock + p.stock_update >= 0)) p.errorMultiple = true
-        else if(p.isInvendu && p.stock_update >= 0) p.errorMultiple = true 
-        else p.errorMultiple = false
+        if (p.discount_update == null || p.stock_update == null || typeof p.discount_update !== 'number' || typeof p.stock_update !== 'number') p.errorMultiple = true;
+        else if (p.discount_update < 0 || p.discount_update > 100) p.errorMultiple = true;
+        else if (!(p.qty_stock + p.stock_update >= 0)) p.errorMultiple = true;
+        else if(p.isInvendu && p.stock_update >= 0) p.errorMultiple = true ;
+        else p.errorMultiple = false;
         if ((p.stock_update != 0 || p.discount_update != p.discount) && !p.errorMultiple) {
-          return true
+          return true;
         }
       })
 
       update.forEach(update => {
-        response.push({ tigID: update.tigID, stock: update.stock_update, discount: update.discount_update })
-        transactions.push({
-          price: update.sale_price,
-          quantity: update.stock_update,
-          tigID: update.tigID,
-          opetarion: update.stock_update >= 0 ? 0 : (update.isInvendu ? 2 : 1)
-        })
+        response.push({ tigID: update.tigID, stock: update.stock_update, discount: update.discount_update });
+        if(update.stock_update != 0)  {
+          transactions.push({
+            price: update.discount_price,
+            quantity: update.stock_update,
+            tigID: update.tigID,
+            opetarion: update.stock_update >= 0 ? 0 : (update.isInvendu ? 2 : 1)
+          });
+        }
       })
 
       if (response.length > 0 && !this.haveErrors()) {
         this.produits[produit].forEach(p => {
-          p.qte_stock += p.stock_update
-          p.discount = p.discount_update
+          p.qty_stock += p.stock_update;
+          p.discount = p.discount_update;
           if (p.discount == 0)
-            p.sale_price = p.price
+            p.discount_price = p.resale_price;
           if (p.discount > 0)
-            p.sale_price = p.price - ((p.price * p.discount) / 100)
+            p.discount_price = p.resale_price - ((p.resale_price * p.discount) / 100);
         })
       }
     }
 
     if (response.length > 0 && !this.haveErrors()) {
       this.notifyService.showSuccess("Modification acceptée", "");
-      this.serviceProducts.postGroupTransaction(transactions)
-      this.serviceProducts.patchGroupProduct(response)
+      this.serviceProducts.patchGroupProduct(response);
+      if(transactions.length > 0) 
+        this.serviceProducts.postGroupTransaction(transactions);
       for (const produit in this.produits) {
         this.produits[produit].forEach(p => {
           p.discount_update = p.discount;
@@ -101,10 +108,10 @@ export class GroupDetailsComponent implements OnInit {
   }
 
   haveErrors(): Boolean {
-    let res: Boolean = false
+    let res: Boolean = false;
     for (const produit in this.produits) {
       this.produits[produit].forEach(p => {
-        if (p.errorMultiple == true) res = true
+        if (p.errorMultiple == true) res = true;
       })
     }
     return res;
@@ -113,13 +120,13 @@ export class GroupDetailsComponent implements OnInit {
   messageErrors() {
     let res = []
     this.produits.poissons.forEach(p => {
-      if (p.errorMultiple == true) res.push("Une erreur est survenue dans les Poissons")
+      if (p.errorMultiple == true) res.push("Une erreur est survenue dans les Poissons");
     })
     this.produits.crustaces.forEach(p => {
-      if (p.errorMultiple == true) res.push("Une erreur est survenue dans les Crustacés")
+      if (p.errorMultiple == true) res.push("Une erreur est survenue dans les Crustacés");
     })
     this.produits.fruitsDeMers.forEach(p => {
-      if (p.errorMultiple == true) res.push("Une erreur est survenue dans les Fruits de mer")
+      if (p.errorMultiple == true) res.push("Une erreur est survenue dans les Fruits de mer");
     })
     return res[0]
   }
