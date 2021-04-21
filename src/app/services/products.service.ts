@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from '../models/product.type'
+import { Transaction } from '../models/transaction.type';
 
 @Injectable({
   providedIn: 'root'
@@ -65,5 +66,9 @@ export class ProductsService {
   patchGroupProduct(products: Array<{ tigID: number, stock: number, discount: number }>) {
     console.log("call to API - Products (Modification de groupe sur les stocks et pourcentages)");
     console.log(products);
+  }
+
+  getTransaction() {
+    return this.http.get<Transaction[]>("../../assets/data/comptability.json")
   }
 }

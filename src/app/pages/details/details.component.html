@@ -24,7 +24,7 @@
 		<div class="card" *ngIf="currentProduct">
 			<h5 class="card-header">{{ currentProduct.name }}</h5>
 			<div class="card-body">
-				<div>Prix : {{ currentProduct.resale_price }}€</div>
+				<div>Prix : {{ currentProduct.retail_price }}€</div>
 				<div>Prix en promotion : {{ currentProduct.discount_price }}€</div>
 				<div>Pourcentage de promotion : {{ currentProduct.discount }}%</div>
 				<div>Quantité en stock : {{ currentProduct.qty_stock }}</div>

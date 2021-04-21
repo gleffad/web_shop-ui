@@ -86,9 +86,9 @@ export class GroupDetailsComponent implements OnInit {
           p.qty_stock += p.stock_update;
           p.discount = p.discount_update;
           if (p.discount == 0)
-            p.discount_price = p.resale_price;
+            p.discount_price = p.retail_price;
           if (p.discount > 0)
-            p.discount_price = p.resale_price - ((p.resale_price * p.discount) / 100);
+            p.discount_price = p.retail_price - ((p.retail_price * p.discount) / 100);
         })
       }
     }

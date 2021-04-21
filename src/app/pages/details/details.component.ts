@@ -101,9 +101,9 @@ export class DetailsComponent implements OnInit {
       this.notifyService.showSuccess("Promotion pris en compte", "");
       this.currentProduct.discount = discount
       if(discount == 0) 
-        this.currentProduct.discount_price = this.currentProduct.resale_price
+        this.currentProduct.discount_price = this.currentProduct.retail_price
       if(discount > 0)
-        this.currentProduct.discount_price = this.currentProduct.resale_price - ((this.currentProduct.resale_price * discount) / 100)
+        this.currentProduct.discount_price = this.currentProduct.retail_price - ((this.currentProduct.retail_price * discount) / 100)
 
       this.serviceProducts.patchDiscount(discount)
     }

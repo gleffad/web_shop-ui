@@ -10,6 +10,9 @@ import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { GroupDetailsComponent } from './pages/group-details/group-details.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { HighchartsChartModule } from 'highcharts-angular';
+import { MomentModule } from 'ngx-moment';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    HighchartsChartModule,
+    MomentModule
   ],
   providers: [],
   bootstrap: [AppComponent]

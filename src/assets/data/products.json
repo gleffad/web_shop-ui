@@ -4,7 +4,7 @@
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -18,7 +18,7 @@
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -26,12 +26,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 2,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -39,12 +40,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 3,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -52,12 +54,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 4,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -65,12 +68,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 5,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -78,12 +82,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 6,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -91,12 +96,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 7,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -104,12 +110,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 8,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -117,12 +124,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 9,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -130,12 +138,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 10,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -143,12 +152,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 11,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -156,12 +166,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 12,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -169,12 +180,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 13,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -182,12 +194,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 14,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -195,12 +208,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 15,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -208,12 +222,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 16,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -221,12 +236,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 17,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -234,12 +250,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 18,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -247,12 +264,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 19,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -260,12 +278,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 20,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -273,12 +292,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 21,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -286,12 +306,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 22,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -299,12 +320,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 23,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -312,12 +334,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 24,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -325,12 +348,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 25,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -338,12 +362,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 26,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -351,12 +376,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 27,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -364,12 +390,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 28,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -377,12 +404,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 29,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -390,12 +418,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 30,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -403,12 +432,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 31,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -416,12 +446,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 32,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -429,12 +460,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 33,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -442,12 +474,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 34,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -455,12 +488,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 35,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -468,12 +502,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 36,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -481,12 +516,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 37,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -494,12 +530,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 38,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
@@ -507,12 +544,13 @@
         "comment": "De la merde",
         "created": "29/08/1996",
         "category": 0
-    },    {
+    },
+    {
         "tigID": 39,
         "name": "toto",
         "sale": false,
         "producer_price": 10,
-        "resale_price": 10,
+        "retail_price": 10,
         "discount_price": 5,
         "discount": 50,
         "qty_stock": 10,
