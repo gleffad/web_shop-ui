@@ -57,13 +57,13 @@ export class DetailsComponent implements OnInit {
       this.errorStock=true;
     } else {
       this.notifyService.showSuccess("Ajout du stock pris en compte", "");
-      this.serviceProducts.patchAddStockProduct(stock);
-      this.serviceProducts.postTransaction({
-        price: this.currentProduct.discount_price,
-        quantity: stock,
-        tigID: this.currentProduct.tigID,
-        opetarion: 0
-      })
+      this.serviceProducts.patchAddStockProduct(this.currentProduct.tigID, stock);
+      // this.serviceProducts.postTransaction({
+      //   price: this.currentProduct.discount_price,
+      //   quantity: stock,
+      //   tigID: this.currentProduct.tigID,
+      //   opetarion: 0
+      // })
 
       this.errorStock=false;
       this.currentProduct.qty_stock += stock
@@ -77,13 +77,13 @@ export class DetailsComponent implements OnInit {
       this.errorStock=true;
     } else {
       this.notifyService.showSuccess("Retrait du stock pris en compte", "");
-      this.serviceProducts.patchSubStockProduct(stock);
-      this.serviceProducts.postTransaction({
-        price: this.currentProduct.discount_price,
-        quantity: stock,
-        tigID: this.currentProduct.tigID,
-        opetarion: this.currentProduct.isInvendu ? 2 : 1
-      });
+      this.serviceProducts.patchSubStockProduct(this.currentProduct.tigID, stock, this.currentProduct.isInvendu ? 2 : 1);
+      // this.serviceProducts.postTransaction({
+      //   price: this.currentProduct.discount_price,
+      //   quantity: stock,
+      //   tigID: this.currentProduct.tigID,
+      //   opetarion: this.currentProduct.isInvendu ? 2 : 1
+      // });
 
       this.currentProduct.qty_stock -= stock
       this.errorStock = false;
@@ -105,7 +105,7 @@ export class DetailsComponent implements OnInit {
       if(discount > 0)
         this.currentProduct.discount_price = this.currentProduct.retail_price - ((this.currentProduct.retail_price * discount) / 100)
 
-      this.serviceProducts.patchDiscount(discount)
+      this.serviceProducts.patchDiscount(this.currentProduct.tigID, discount)
     }
   }
 

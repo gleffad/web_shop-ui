@@ -8,49 +8,46 @@ import { Transaction } from '../models/transaction.type';
 })
 export class ProductsService {
 
-  // baseUrl: String = "http://localhost:8000"
+  baseUrl: String = "http://localhost:8000"
 
   constructor(private http: HttpClient) { }
-    
-  // getProductsTest() {
-  //   return this.http.get<Product[]>(this.baseUrl + "/products")
-  // }
 
   getProducts() {
-    return this.http.get<Product[]>("../../assets/data/products.json")
+    return this.http.get<Product[]>(this.baseUrl + "/products")
   }
 
   getPoissons() {
-    return this.http.get<Product[]>("../../assets/data/products.json")
+    return this.http.get<Product[]>(this.baseUrl + "/products/fish")
   }
 
   getCrutaces() {
-    return this.http.get<Product[]>("../../assets/data/products.json")
+    return this.http.get<Product[]>(this.baseUrl + "/products/shellfish")
   }
   
   getFruitsDeMer() {
-    return this.http.get<Product[]>("../../assets/data/products.json")
+    return this.http.get<Product[]>(this.baseUrl + "/products/seafood")
   }
 
-  patchSubStockProduct(stock: number) {
-    console.log("call to API - Products (Soustraire le stock à la valeur présente dans Produit)");
-    console.log({
-      stock
-    });
+  patchSubStockProduct(tigID: number, discount: number, operation: number) {
+    this.http.post(this.baseUrl + "/decrementstock/", {
+      "tigID": tigID,
+      "qty": discount,
+      "operation": operation
+    }).subscribe()
   }
 
-  patchAddStockProduct(stock: number){
-    console.log("call to API - Products (Ajouter le stock à la valeur présente dans Produit)");
-    console.log({
-      stock
-    });
+  patchAddStockProduct(tigID: number, discount: number){
+    this.http.patch(this.baseUrl + "/incrementstock/", {
+      "tigID": tigID,
+      "qty": discount
+    }).subscribe()
   }
 
-  patchDiscount(discount: number) {
-    console.log("call to API - Products (Remplace le pourcentage de Produit)");
-    console.log({
-      discount
-    });
+  patchDiscount(tigID: number, discount: number) {
+    this.http.patch(this.baseUrl + "/setdiscount/", {
+      "tigID": tigID,
+      "discount": discount
+    }).subscribe()
   }
 
   postTransaction(transaction: { price: number, quantity: number, tigID: number, opetarion: number }) {
