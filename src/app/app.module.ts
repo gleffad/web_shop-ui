@@ -12,6 +12,8 @@ import { GroupDetailsComponent } from './pages/group-details/group-details.compo
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { MomentModule } from 'ngx-moment';
+import { HomeComponent } from './pages/home/home.component';
+import { JwtModule } from '@auth0/angular-jwt';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { MomentModule } from 'ngx-moment';
     AppComponent,
     DetailsComponent,
     GroupDetailsComponent,
-    DashboardComponent
+    DashboardComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,18 @@ import { MomentModule } from 'ngx-moment';
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
     HighchartsChartModule,
-    MomentModule
+    MomentModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: function tokenGetter() {
+          return localStorage.getItem('access_token');
+        },
+        allowedDomains: ['localhost:3000'],
+        disallowedRoutes: ['http://localhost:4200/auth/login']
+        // whitelistedDomains: ['localhost:3000'],
+        // blacklistedRoutes: ['http://localhost:3000/auth/login']
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

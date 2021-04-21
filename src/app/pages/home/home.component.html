@@ -1,0 +1,16 @@
+<div class="d-flex justify-content-center">
+    <form #f="ngForm">
+
+        <div class="form-floating mb-3 mt-5">
+            <input type="email" class="form-control" id="account" placeholder="name@example.com" name="account" ngModel>
+            <label for="account">Nom de compte</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password" ngModel>
+            <label for="floatingPassword">Mot de passe</label>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary" (click)="connect(f)">Connexion</button>
+    </form>
+</div>
