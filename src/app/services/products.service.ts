@@ -69,7 +69,7 @@ export class ProductsService {
   }
 
   getTransaction(type: String, time: String) {
-    console.log("call to API - Transaction (Va cherche les données de transaction en fonction de "+ type +" et "+ time + ")");
+    console.log("/" + type + "/comptability/" + time + "");  
     return this.http.get<Transaction[]>("../../assets/data/comptability.json")
   }
 }

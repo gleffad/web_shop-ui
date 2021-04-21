@@ -1,28 +1,13 @@
-<!-- <script src="https://code.highcharts.com/highcharts.js"></script>
-<script src="https://code.highcharts.com/modules/series-label.js"></script>
-<script src="https://code.highcharts.com/modules/exporting.js"></script>
-<script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
-<figure class="highcharts-figure">
-    <div id="container"></div>
-</figure> -->
-
-<style type="text/css">
-    .jumbotron {
-        padding: 4rem 2rem;
-        margin-bottom: 2rem;
-        background-color: var(--bs-light);
-        border-radius: .3rem;
-    }
-</style>
-
+<div *ngIf="haveError" class="alert alert-danger" role="alert">
+    Votre recherche est incomplète
+</div>
 <div class="jumbotron">
+   
     <form #f="ngForm">
         <div class="row">
             <div class="col-4">
                 <select class="form-select" name="time" ngModel>
-                    <option value="">-- Type de produit --</option>
+                    <option value="">-- Filtrer par date --</option>
                     <option value="day">Jour</option>
                     <option value="month">Mois</option>
                     <option value="year">Année</option>
@@ -30,14 +15,13 @@
     
             </div>
             <div class="col-4">
-                <select class="form-select" aria-label="Default select example" name="type" ngModel>
-                    <option value="">-- Filtré par date --</option>
+                <select class="form-select" name="type" ngModel>
+                    <option value="">-- Type de produit --</option>
                     <option value="poissons">Poissons</option>
-                    <option value="coquillages">Fruits de mer</option>
+                    <option value="fruitsDeMer">Fruits de mer</option>
                     <option value="crustaces">Crustacés</option>
                     <option value="all">All</option>
                 </select>
-    
             </div>
             <div class="col-4">
                 <button class="btn btn-primary" (click)="search(f)">Rechercher</button>
@@ -45,3 +29,7 @@
         </div>
     </form>
 </div>
+
+<figure *ngIf="haveChart" class="highcharts-figure">
+    <div id="container"></div>
+</figure>
