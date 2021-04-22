@@ -28,8 +28,8 @@ export class DashboardComponent implements OnInit {
       }
     },
 
-    rangeSelector : {
-        enabled: false
+    rangeSelector: {
+      selected: 1
     },
 
     navigator: {
