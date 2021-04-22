@@ -62,10 +62,11 @@ export class ProductsService {
     })
   }
 
-  getTransaction(type: String, time: String) { 
+  getTransaction(type: String, time: String, comptability: String) { 
     return this.http.post<Transaction[]>(this.baseUrl + "/comptability/", {
       product_type: type,
-      time_format: time
+      time_format: time,
+      comptability: comptability
     })
   }
 }
