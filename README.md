@@ -1,4 +1,4 @@
-# Back Office Bateau Thibault
+# Front Office Bateau Thibault (Angular 11)
 
 Ce projet a été créé avec [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
 
