@@ -14,10 +14,7 @@ export class JwtGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      console.log("LOGGEDIN");
-      
-      console.log(this.jwt.loggedIn)
-      return this.jwt.loggedIn;
+    return this.jwt.loggedIn;
   }
-  
+
 }

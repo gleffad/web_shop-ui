@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.type';
 import { NotificationService } from 'src/app/services/notification.service';
 import { ProductsService } from 'src/app/services/products.service';
+import { JwtService } from 'src/app/services/jwt.service';
 
 @Component({
   selector: 'app-group-details',
@@ -16,7 +17,7 @@ export class GroupDetailsComponent implements OnInit {
     fruitsDeMers: []
   }
 
-  constructor(private serviceProducts: ProductsService, private notifyService: NotificationService) { }
+  constructor(private serviceProducts: ProductsService, private notifyService: NotificationService, private jwt: JwtService) { }
 
   ngOnInit(): void {
     this.serviceProducts.getProducts().subscribe(
@@ -99,8 +100,6 @@ export class GroupDetailsComponent implements OnInit {
     if (response.length > 0 && !this.haveErrors()) {
       this.notifyService.showSuccess("Modification acceptée", "");
       this.serviceProducts.patchGroupProduct(response);
-      if(transactions.length > 0) 
-        this.serviceProducts.postGroupTransaction(transactions);
       for (const produit in this.produits) {
         this.produits[produit].forEach(p => {
           p.discount_update = p.discount;

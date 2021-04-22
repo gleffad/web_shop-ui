@@ -13,7 +13,6 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getProducts() {
-    console.log("getProducts")
     return this.http.get<Product[]>(this.baseUrl + "/products/")
   }
 
@@ -51,19 +50,7 @@ export class ProductsService {
     }).subscribe()
   }
 
-  postTransaction(transaction: { price: number, quantity: number, tigID: number, opetarion: number }) {
-    console.log("call to API - Transaction (Ajout d'une transaction)");
-    console.log(transaction);
-  }
-  
-  postGroupTransaction(transactions: Array<{ price: number, quantity: number, tigID: number, opetarion: number }>) {
-    console.log("call to API - Transaction (Ajout de plusieurs transactions)");
-    console.log(transactions);
-  }
-
   patchGroupProduct(products: Array<{ tigID: number, stock: number, discount: number }>) {
-    console.log("call to API - Products (Modification de groupe sur les stocks et pourcentages)");
-    console.log(products);
     this.http.post(this.baseUrl + "/productsGroup/", products).subscribe()
   }
 

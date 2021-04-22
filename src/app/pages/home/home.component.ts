@@ -19,8 +19,6 @@ export class HomeComponent implements OnInit {
   connect(form) {
     this.jwt.login(form.value.account, form.value.password).subscribe(
       res => {
-        console.log(res);
-        
         this.router.navigate(['/details'])
       },
       error => console.log(error)

@@ -27,7 +27,7 @@ export class DetailsComponent implements OnInit {
         this.products = response.map(prod => ({ ...prod, toggle: false, isInvendu: false }));
         this.searchProducts = [...this.products];
       },
-      error => { console.log(error)}
+      error => { console.log(error) }
     );
   }
 

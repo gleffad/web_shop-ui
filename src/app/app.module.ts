@@ -36,19 +36,15 @@ import { JwtInterceptor, JwtModule } from '@auth0/angular-jwt';
     JwtModule.forRoot({
       config: {
         tokenGetter: function tokenGetter() {
-          console.log(localStorage.getItem('access_token'));
-          
           return localStorage.getItem('access_token');
         },
         allowedDomains: ['localhost:8000'],
         disallowedRoutes: ['http://localhost:4200/'],
-        // whitelistedDomains: ['localhost:8000'],
-        // blacklistedRoutes: ['http://localhost:3000/auth/login']
       }
     })
   ],
   providers: [
-    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

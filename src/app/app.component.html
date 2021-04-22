@@ -17,6 +17,7 @@
           <a class="nav-link" routerLink="/group-details" routerLinkActive="active">Détails et modification simultanées</a>
         </li>
       </ul>
+      <button *ngIf="jwt.loggedIn"class="btn btn-secondary" (click)="logOut()">Decconnexion</button>
     </div>
   </div>
 </nav>

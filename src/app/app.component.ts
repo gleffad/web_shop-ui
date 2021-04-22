@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, map } from "rxjs/operators";
+import { JwtService } from './services/jwt.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { filter, map } from "rxjs/operators";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private titleService: Title) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private titleService: Title, public jwt : JwtService) {
     this.router.events.pipe(
       filter(event => event instanceof NavigationEnd),
       map(() => {
@@ -32,5 +33,10 @@ export class AppComponent {
         this.titleService.setTitle('Back Office');
       }
     });
+  }
+
+  logOut() {
+    this.jwt.logout();
+    this.router.navigate(['/']);
   }
 }
