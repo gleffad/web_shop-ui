@@ -73,7 +73,7 @@ export class GroupDetailsComponent implements OnInit {
         response.push({ tigID: update.tigID, stock: update.stock_update, discount: update.discount_update });
         if(update.stock_update != 0)  {
           transactions.push({
-            price: update.discount_price,
+            price: update.discount_price == 0 ? update.retail_price : update.discount_price,
             quantity: update.stock_update,
             tigID: update.tigID,
             opetarion: update.stock_update >= 0 ? 0 : (update.isInvendu ? 2 : 1)
