@@ -1,11 +1,16 @@
 # Front Office Bateau Thibault (Angular 11)
 
-Ce projet a été créé avec [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
+This project has been created with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.7.
 
-## Installer le projet
+## Install project
 
-Exécutez `npm i` pour installer les différents dépendance.
+To install dependencies, exécute `npm i`.
 
-## Lancer le serveur
+## Launch service
 
-Exécutez `ng serve --open` pour lancer le serveur de développement et ouvrir votre navigateur jusqu'à `http://localhost:4200/`.
+To launch the service, execute `ng serve --open`.
+
+## Use Web-app
+
+Open your Web browser at `http://localhost:4200/`.
+
