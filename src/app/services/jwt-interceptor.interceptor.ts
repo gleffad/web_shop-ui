@@ -15,15 +15,11 @@ export class JwtInterceptorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (request.url !== 'http://localhost:8000/token/') {
       const token = localStorage.getItem('access_token');
-      console.log("TEST");
-      
       request = request.clone({
         setHeaders: {
           Authorization: 'Bearer ' + token
         }
       });
-      console.log(request);
-      
       return next.handle(request);
     }
   }

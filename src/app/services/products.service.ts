@@ -33,25 +33,33 @@ export class ProductsService {
       "tigID": tigID,
       "qty": discount,
       "operation": operation
-    }).subscribe()
+    }).subscribe(response => {}, error => {
+      console.log(error);  
+    })
   }
 
   patchAddStockProduct(tigID: number, discount: number){
     this.http.patch(this.baseUrl + "/incrementstock/", {
       "tigID": tigID,
       "qty": discount
-    }).subscribe()
+    }).subscribe(response => {}, error => {
+      console.log(error);  
+    })
   }
 
   patchDiscount(tigID: number, discount: number) {
     this.http.patch(this.baseUrl + "/setdiscount/", {
       "tigID": tigID,
       "discount": discount
-    }).subscribe()
+    }).subscribe(response => {}, error => {
+      console.log(error);  
+    })
   }
 
   patchGroupProduct(products: Array<{ tigID: number, stock: number, discount: number }>) {
-    this.http.post(this.baseUrl + "/productsGroup/", products).subscribe()
+    this.http.post(this.baseUrl + "/productsGroup/", products).subscribe(response => {}, error => {
+      console.log(error);  
+    })
   }
 
   getTransaction(type: String, time: String) { 

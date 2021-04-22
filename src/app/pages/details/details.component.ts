@@ -23,7 +23,6 @@ export class DetailsComponent implements OnInit {
   ngOnInit(): void {
     this.serviceProducts.getProducts().subscribe(
       response => {
-        console.log("Success !")
         this.products = response.map(prod => ({ ...prod, toggle: false, isInvendu: false }));
         this.searchProducts = [...this.products];
       },

@@ -16,12 +16,6 @@ export class JwtService {
     error => console.log(error)))
   }
 
-  // register(username: string, password: string) {
-  //   return this.httpClient.post<{ access_token: string }>('http://localhost:8000/register/', { username, password }).pipe(tap(res => {
-  //     this.login(username, password)
-  //   }))
-  // }
-
   logout() {
     localStorage.removeItem('access_token');
   }
