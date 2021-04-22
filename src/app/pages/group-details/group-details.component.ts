@@ -70,7 +70,10 @@ export class GroupDetailsComponent implements OnInit {
       })
 
       update.forEach(update => {
-        response.push({ tigID: update.tigID, stock: update.stock_update, discount: update.discount_update });
+        
+        const operation = update.stock_update >= 0 ? 0 : (update.isInvendu ? 2 : 1)
+        
+        response.push({ tigID: update.tigID, stock: update.stock_update, discount: update.discount_update, operation });
         if(update.stock_update != 0)  {
           transactions.push({
             price: update.discount_price == 0 ? update.retail_price : update.discount_price,

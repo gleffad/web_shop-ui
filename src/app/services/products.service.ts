@@ -64,6 +64,7 @@ export class ProductsService {
   patchGroupProduct(products: Array<{ tigID: number, stock: number, discount: number }>) {
     console.log("call to API - Products (Modification de groupe sur les stocks et pourcentages)");
     console.log(products);
+    this.http.post(this.baseUrl + "/productsGroup/", products).subscribe()
   }
 
   getTransaction(type: String, time: String) { 
