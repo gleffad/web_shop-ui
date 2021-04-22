@@ -9,17 +9,18 @@ import { tap } from 'rxjs/operators';
 export class JwtService {
   constructor(private httpClient: HttpClient) { }
 
-  login(email: string, password: string) {
-    return this.httpClient.post<{ access_token: string }>('http://www.your-server.com/auth/login', { email, password }).pipe(tap(res => {
-      localStorage.setItem('access_token', res.access_token);
-    }))
+  login(username: string, password: string) {
+    return this.httpClient.post<any>('http://localhost:8000/token/', { username, password }).pipe(tap(res => {
+      localStorage.setItem('access_token', res.access);
+    },
+    error => console.log(error)))
   }
 
-  register(email: string, password: string) {
-    return this.httpClient.post<{ access_token: string }>('http://www.your-server.com/auth/register', { email, password }).pipe(tap(res => {
-      this.login(email, password)
-    }))
-  }
+  // register(username: string, password: string) {
+  //   return this.httpClient.post<{ access_token: string }>('http://localhost:8000/register/', { username, password }).pipe(tap(res => {
+  //     this.login(username, password)
+  //   }))
+  // }
 
   logout() {
     localStorage.removeItem('access_token');

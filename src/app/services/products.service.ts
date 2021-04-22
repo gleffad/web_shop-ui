@@ -13,19 +13,20 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getProducts() {
-    return this.http.get<Product[]>(this.baseUrl + "/products")
+    console.log("getProducts")
+    return this.http.get<Product[]>(this.baseUrl + "/products/")
   }
 
   getPoissons() {
-    return this.http.get<Product[]>(this.baseUrl + "/products/fish")
+    return this.http.get<Product[]>(this.baseUrl + "/products/fish/")
   }
 
   getCrutaces() {
-    return this.http.get<Product[]>(this.baseUrl + "/products/shellfish")
+    return this.http.get<Product[]>(this.baseUrl + "/products/shellfish/")
   }
   
   getFruitsDeMer() {
-    return this.http.get<Product[]>(this.baseUrl + "/products/seafood")
+    return this.http.get<Product[]>(this.baseUrl + "/products/seafood/")
   }
 
   patchSubStockProduct(tigID: number, discount: number, operation: number) {
@@ -65,8 +66,10 @@ export class ProductsService {
     console.log(products);
   }
 
-  getTransaction(type: String, time: String) {
-    console.log("/" + type + "/comptability/" + time + "");  
-    return this.http.get<Transaction[]>("../../assets/data/comptability.json")
+  getTransaction(type: String, time: String) { 
+    return this.http.post<Transaction[]>(this.baseUrl + "/comptability/", {
+      product_type: type,
+      time_format: time
+    })
   }
 }
